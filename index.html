@@ -3,68 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Play Monster Survivors, an action-packed survival game where you battle against hordes of monsters!">
-    <meta name="keywords" content="Monster Survivors, online game, survival game, play now">
-    <meta name="author" content="MonsterSurvivors.com">
-    <link rel="canonical" href="https://monstersurvivors.com/">
-    <title>Monster Survivors - Play Free Online</title>
+    <meta name="description" content="Play a Fun - Enjoy exciting online games with seamless switching between Monster Survivors and CS Online.">
+    <link rel="canonical" href="https://playafun.xyz/">
+    <title>Play a Fun - Online Games</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .game-container iframe { width: 100%; height: 80vh; border: none; }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-    <header class="text-center py-6 bg-blue-600 text-white">
-        <h1 class="text-4xl font-bold">Monster Survivors</h1>
-        <p class="text-lg mt-2">Survive the monster apocalypse and claim your victory!</p>
-    </header>
-    
-    <main class="max-w-4xl mx-auto p-4">
-        <section class="mb-6">
-            <h2 class="text-2xl font-semibold text-blue-600">Play Now</h2>
-            <div class="mt-4 border-4 border-blue-500 rounded-lg overflow-hidden relative">
-                <iframe id="gameFrame" src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" 
-                        class="w-full h-[500px] sm:h-[600px]" 
-                        allowfullscreen>
-                </iframe>
-                <button id="fullscreenBtn" class="absolute top-2 right-2 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700">
-                    Fullscreen
-                </button>
-            </div>
-        </section>
+<body class="bg-gray-100 text-gray-900">
+    <div class="max-w-4xl mx-auto p-4 text-center">
+        <h1 class="text-4xl font-bold text-blue-600">Play a Fun - Online Games</h1>
+        <p class="text-lg text-gray-700 mt-2">Enjoy exciting online games and switch seamlessly between them.</p>
         
-        <section class="mb-6">
-            <h2 class="text-2xl font-semibold text-blue-600">Game Overview</h2>
-            <p class="mt-2 text-gray-700">
-                Monster Survivors is an adrenaline-fueled survival game where you must fight against endless waves of terrifying creatures.
-                Use weapons, power-ups, and strategies to stay alive and defeat as many monsters as possible!
-            </p>
-        </section>
-        
-        <section>
-            <h2 class="text-2xl font-semibold text-blue-600">Features</h2>
-            <ul class="mt-2 list-disc list-inside text-gray-700">
-                <li>Fast-paced survival gameplay</li>
-                <li>Challenging enemies and levels</li>
-                <li>Power-ups and weapon upgrades</li>
-                <li>Play directly in your browser with no download required</li>
-            </ul>
-        </section>
-    </main>
-    
-    <footer class="text-center py-4 bg-blue-600 text-white mt-8">
-        <p>&copy; 2025 MonsterSurvivors.com. All Rights Reserved.</p>
-    </footer>
-    
+        <div class="flex justify-center space-x-4 my-4">
+            <button id="game1-btn" class="px-4 py-2 bg-blue-500 text-white rounded-xl">Monster Survivors</button>
+            <button id="game2-btn" class="px-4 py-2 bg-green-500 text-white rounded-xl">CS Online</button>
+        </div>
+
+        <div class="game-container">
+            <iframe id="game-frame" src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" allowfullscreen></iframe>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-6">Game Details</h2>
+        <p class="text-gray-700 mt-2">Monster Survivors is an action-packed survival game where you fight off waves of monsters. CS Online offers a thrilling FPS experience with multiplayer battles.</p>
+    </div>
+
     <script>
-        document.getElementById('fullscreenBtn').addEventListener('click', function() {
-            let iframe = document.getElementById('gameFrame');
-            if (iframe.requestFullscreen) {
-                iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) { 
-                iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) { 
-                iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) { 
-                iframe.msRequestFullscreen();
-            }
+        const gameFrame = document.getElementById("game-frame");
+        const game1Btn = document.getElementById("game1-btn");
+        const game2Btn = document.getElementById("game2-btn");
+
+        const games = {
+            monster: "https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html",
+            cs: "https://www.onlinegames.io/games/2023/unity2/cs-online/index.html"
+        };
+
+        game1Btn.addEventListener("click", () => {
+            gameFrame.src = games.monster;
+        });
+
+        game2Btn.addEventListener("click", () => {
+            gameFrame.src = games.cs;
         });
     </script>
 </body>
